@@ -25,7 +25,8 @@ const messageRouter = require("./routes/message");
 const dashboardRouter = require('./routes/dashboard');
 
 //test route. PS: TO BE DELETED LATER
-app.get('/', (req, res) => res.send("<h2>Hello world</h2>"));
+//app.get('/', (req, res) => res.send("<h2>Hello world</h2>"));
+app.get('/', userRouter);
 
 /** route endpoints **/
 app.use('/api/v1/auth', authRouter);
