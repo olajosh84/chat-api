@@ -4,7 +4,12 @@ const cors = require('cors');
 require('dotenv').config();
 
 /** express middlewares **/
-app.use(cors());
+const origin = process.env.CLIENT_URI;
+app.use(cors({
+    origin: origin,
+    methods: ["POST", 'GET'],
+    credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
@@ -33,7 +38,7 @@ app.use('/api/v1/dashboard', authenticateUser, dashboardRouter);
 app.use(notFound);
 
 /** DB and Server Connection **/
-const port = 8080;
+const port = process.env.PORT || 8080;
 const dbConnection = async (req, res) => {
     try{
         await connectDb(process.env.MONGODB_URI);
