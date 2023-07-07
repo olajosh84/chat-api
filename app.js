@@ -7,7 +7,7 @@ require('dotenv').config();
 const origin = process.env.CLIENT_URI;
 app.use(cors({
     origin: origin,
-    methods: ["POST", 'GET'],
+    methods: ["POST", 'GET', 'PATCH'],
     credentials: true
 }));
 app.use(express.json());

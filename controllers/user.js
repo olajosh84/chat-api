@@ -23,7 +23,7 @@ const fetchUser = async (req, res) => {
 
 const updateProfile = async (req, res) => {
     const { userId } = req.params;
-    const { firstName, lastName, profileImg } = req.body;
+    const { firstName, lastName } = req.body;
     if(!firstName || !lastName) return res.status(400).json({status: false, msg: "All form fields are compulsory"});
     try {
         const user = await UserModel.findOneAndUpdate({_id: userId}, req.body, { new: true, runValidators: true});
