@@ -11,7 +11,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 
 const connectDb = require('./db/connect');
 const notFound = require('./middlewares/not-found');
